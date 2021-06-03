@@ -2,4 +2,5 @@ type Event @entity {
    id: ID!
   claimHash: Bytes!
   fileHash: Bytes!
+  timestamp: BigInt!
 }
