@@ -1,8 +1,9 @@
+import {Claim} from "../generated/Events/Certifaction";
 import { Event } from '../generated/schema'
 
-export function handleNewEvent(event: Event): void {
-  let e = new Event(event.id)
-  e.claimHash = event.claimHash
-  e.fileHash = event.fileHash
+export function handleNewEvent(claim: Claim): void {
+  let e = new Event(claim.params.hash.toHexString()+"-"+claim.params.file.toHexString())
+  e.claimHash = claim.params.hash
+  e.fileHash = claim.params.file
   e.save()
 }
